@@ -1,0 +1,166 @@
+   /* --- 1. GLOBAL STYLES (Dùng chung với trang trước) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f9f9f9; color: #333; padding-bottom: 50px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        
+        /* --- 2. SEARCH BOX SECTION --- */
+        .tracking-search-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tracking-title { font-size: 28px; font-weight: 700; margin-bottom: 10px; color: #222; }
+        .tracking-subtitle { color: #666; margin-bottom: 30px; }
+
+        .search-form {
+            display: flex;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .input-group { flex: 1; position: relative; }
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.2s;
+        }
+        .form-input:focus { border-color: #facc15; box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1); }
+        
+        .btn-track {
+            padding: 0 40px;
+            background-color: #facc15;
+            color: #222;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+        .btn-track:hover { background-color: #eab308; transform: translateY(-1px); }
+
+        /* --- 3. RESULT SECTION (Ẩn mặc định, hiện khi tìm thấy) --- */
+        .tracking-result {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            overflow: hidden;
+            display: none; /* Mặc định ẩn */
+        }
+        .tracking-result.active { display: block; }
+
+        /* Header đơn hàng */
+        .order-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+        .order-id { font-size: 18px; font-weight: 700; }
+        .order-status {
+            background: #dcfce7; color: #166534; /* Màu xanh lá status */
+            padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: 600;
+        }
+
+        /* --- 4. PROGRESS BAR (STEPPER) --- */
+        .progress-track {
+            padding: 40px 30px;
+            background: #fdfdfd;
+            border-bottom: 1px solid #eee;
+        }
+        .step-list {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* Đường kẻ ngang xám */
+        .step-list::before {
+            content: ''; position: absolute; top: 20px; left: 0; right: 0;
+            height: 4px; background: #e0e0e0; z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .step-item {
+            position: relative; z-index: 2; text-align: center; width: 25%;
+        }
+
+        .step-icon {
+            width: 40px; height: 40px;
+            background: #fff; border: 4px solid #e0e0e0;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: #999;
+            transition: 0.3s;
+        }
+
+        .step-label { font-size: 14px; font-weight: 600; color: #999; margin-bottom: 5px; }
+        .step-date { font-size: 12px; color: #bbb; display: block; }
+
+        /* Trạng thái đã hoàn thành (Active) */
+        .step-item.completed .step-icon {
+            border-color: #facc15; background: #facc15; color: #222;
+        }
+        .step-item.completed .step-label { color: #333; }
+        
+        /* Đường kẻ màu vàng chạy theo tiến độ */
+        .progress-line-active {
+            position: absolute; top: 20px; left: 0;
+            height: 4px; background: #facc15; z-index: 1;
+            width: 0%; /* JS sẽ chỉnh cái này: 0%, 33%, 66%, 100% */
+            transition: width 0.5s ease;
+            transform: translateY(-50%);
+        }
+
+        /* --- 5. ORDER DETAILS (Sản phẩm & Địa chỉ) --- */
+        .order-body { padding: 30px; display: flex; gap: 40px; }
+        
+        .item-list { flex: 2; }
+        .item-row {
+            display: flex; gap: 15px; padding-bottom: 15px; margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .item-row:last-child { border-bottom: none; }
+        
+        .item-img {
+            width: 70px; height: 70px; border: 1px solid #eee; border-radius: 6px;
+            object-fit: contain;
+        }
+        .item-info h4 { font-size: 15px; margin-bottom: 5px; }
+        .item-meta { font-size: 13px; color: #666; }
+        .item-price { margin-left: auto; font-weight: bold; }
+
+        .shipping-info {
+            flex: 1;
+            background: #f8f8f8; padding: 20px; border-radius: 8px;
+            height: fit-content;
+        }
+        .shipping-info h4 { margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        .info-row { margin-bottom: 10px; font-size: 14px; }
+        .info-row i { width: 20px; color: #888; }
+        .total-price {
+            margin-top: 15px; padding-top: 15px; border-top: 1px solid #ddd;
+            font-size: 18px; font-weight: 700; color: #e11d48; display: flex; justify-content: space-between;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .search-form { flex-direction: column; }
+            .btn-track { width: 100%; padding: 12px; }
+            .order-body { flex-direction: column; }
+            .step-label { font-size: 11px; }
+            .step-date { display: none; } /* Ẩn ngày trên mobile cho đỡ rối */
+        }

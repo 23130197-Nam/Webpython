@@ -1,0 +1,456 @@
+/* ======================================================
+   RESET & BASE
+====================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f3f5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* ======================================================
+   LAYOUT
+====================================================== */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+}
+
+.main-content {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+}
+
+/* ======================================================
+   SECTION
+====================================================== */
+.section {
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ======================================================
+   PRODUCT LIST
+====================================================== */
+#order-products {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.product-name {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.quantity {
+    font-size: 13px;
+    color: #666;
+}
+
+.product-price-info {
+    text-align: right;
+}
+
+.final-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #e53935;
+}
+
+/* ======================================================
+   DISCOUNT / VOUCHER
+====================================================== */
+.discount-section {
+    background: #fff;
+}
+
+.voucher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.voucher-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.voucher-card:hover {
+    border-color: #0a8cff;
+    background: #f4faff;
+}
+
+.voucher-card input {
+    display: none;
+}
+
+.voucher-card input:checked ~ .voucher-value {
+    color: #0a8cff;
+}
+
+.voucher-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.voucher-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.voucher-desc {
+    font-size: 12px;
+    color: #666;
+}
+
+.voucher-value {
+    font-size: 14px;
+    font-weight: bold;
+    color: #e53935;
+}
+
+/* ======================================================
+   ADDRESS
+====================================================== */
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.address-card {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #fff;
+}
+
+.address-card input {
+    margin-top: 5px;
+    accent-color: #0a8cff;
+}
+
+.address-card.default {
+    border-color: #0a8cff;
+    background: #f4faff;
+}
+
+.address-info {
+    flex: 1;
+}
+
+.address-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.addr-phone {
+    font-weight: normal;
+    color: #555;
+}
+
+.badge-default {
+    font-size: 11px;
+    background: #0a8cff;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.addr-text {
+    font-size: 13px;
+    color: #555;
+    margin: 6px 0;
+}
+
+.addr-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: #0a8cff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-text.delete {
+    color: #e53935;
+}
+
+/* ======================================================
+   PAYMENT METHODS
+====================================================== */
+.payment-methods-container {
+    background: #fff;
+}
+
+.payment-method-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payment-option:last-child {
+    border-bottom: none;
+}
+
+.payment-option input {
+    accent-color: #0a8cff;
+}
+
+/* ======================================================
+   SIDEBAR / SUMMARY
+====================================================== */
+.sidebar-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.summary-box h3 {
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+.discount-row {
+    border-top: 1px dashed #ddd;
+    margin-top: 6px;
+    padding-top: 8px;
+}
+
+.discount-detail-row {
+    padding-left: 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+.final-row {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.highlight-price {
+    color: #e53935;
+}
+
+.negative-value {
+    color: #e53935;
+}
+
+/* ======================================================
+   BUTTONS
+====================================================== */
+.order-button {
+    width: 100%;
+    padding: 14px;
+    background: #0a8cff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background: #0072d6;
+}
+
+/* ======================================================
+   MODAL
+====================================================== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    width: 420px;
+    max-height: 90vh;
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+    border-bottom: none;
+}
+
+.close-button {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* ======================================================
+   PAYMENT SUCCESS MODAL
+====================================================== */
+.payment-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.payment-modal.hidden {
+    display: none;
+}
+
+.payment-modal-content {
+    background: #fff;
+    width: 360px;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: #28a745;
+    color: white;
+    font-size: 32px;
+    border-radius: 50%;
+    line-height: 60px;
+    margin: 0 auto 15px;
+}
+
+.payment-modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-outline {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #0a8cff;
+    color: #0a8cff;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    flex: 1;
+    background: #0a8cff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* ======================================================
+   UTIL
+====================================================== */
+.hidden {
+    display: none !important;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: static;
+    }
+}

@@ -1,0 +1,270 @@
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+/* ================= LAYOUT ================= */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+}
+
+.main-content {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1.2;
+}
+
+/* ================= SECTION BOX ================= */
+.section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+/* ================= PRODUCT ================= */
+#order-products .product-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+#order-products .product-row:last-child {
+    border-bottom: none;
+}
+
+/* ================= DISCOUNT ================= */
+.discount-section .discount-box {
+    display: flex;
+    gap: 10px;
+}
+
+.discount-section input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.discount-section button {
+    padding: 10px 16px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.discount-section button:hover {
+    background: #43a047;
+}
+
+.promo-message {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ================= DELIVERY ================= */
+.radio-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.radio-label {
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: #f1f1f1;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.radio-label input {
+    display: none;
+}
+
+.radio-label.active {
+    background: #4CAF50;
+    color: #fff;
+}
+
+.delivery-content {
+    margin-top: 10px;
+}
+
+.address-display-box {
+    background: #f9f9f9;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address-title {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.change-button {
+    background: none;
+    border: none;
+    color: #4CAF50;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.address-line-1,
+.address-line-2 {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* ================= NOTE ================= */
+.note-title {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.note-area {
+    position: relative;
+}
+
+.note-area textarea {
+    width: 100%;
+    min-height: 70px;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.note-counter {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    font-size: 12px;
+    color: #999;
+}
+
+/* ================= STORE ================= */
+.select-store-button {
+    width: 100%;
+    padding: 12px;
+    border: 1px dashed #4CAF50;
+    background: #f7fff7;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #4CAF50;
+}
+
+/* ================= PAYMENT ================= */
+.payment-methods-container .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payment-methods-container .payment-option input {
+    accent-color: #4CAF50;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.summary-box h3 {
+    margin-bottom: 16px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.discount-row .negative-value {
+    color: #e53935;
+}
+
+.final-row {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 14px;
+}
+
+.highlight-price {
+    color: #ff9800;
+}
+
+/* ================= BUTTON ================= */
+.order-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background: #43a047;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        order: -1;
+    }
+}

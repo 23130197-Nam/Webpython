@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ hàng | FoodSmart</title>
+ <link rel="stylesheet" href="../static/css/cart.css">
+</head>
+<body>
+
+<section class="cart">
+  <h1>Giỏ hàng của bạn</h1>
+
+  <div class="cart-wrapper">
+
+    <!-- LEFT -->
+    <div class="cart-left" id="cartItems">
+
+      <div class="select-all">
+        <label>
+          <input type="checkbox" id="selectAll" checked>
+          Chọn tất cả
+        </label>
+      </div>
+
+      <!-- 
+        Cart items sẽ được render bằng JavaScript từ API
+        .cart-item sẽ được tạo động, KHÔNG hard-code ở đây
+      -->
+
+      <div id="emptyCart" style="display:none; padding: 40px; text-align:center; color:#888;">
+        Giỏ hàng của bạn đang trống 🧺
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="cart-right">
+      <h2>Tóm tắt đơn hàng</h2>
+
+      <div class="row">
+        <span>Tạm tính</span>
+        <span id="subtotal">0đ</span>
+      </div>
+
+      <div class="row">
+        <span>Vận chuyển</span>
+        <span id="shipping">0đ</span>
+      </div>
+
+      <div class="row total">
+        <span>Tổng cộng</span>
+        <span id="total">0đ</span>
+      </div>
+
+      <a href="../../users/templates/payments/index.html"><button class="checkout" id="checkoutBtn">Thanh toán</button></a>
+
+      <a href="../../users/templates/users/index.html" class="continue">← Tiếp tục mua sắm</a>
+    </div>
+
+  </div>
+</section>
+
+<script src="{% static 'js/cart1.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - WebSmartWatch</title>
+    <link rel="stylesheet" href="{% static 'css/Pay.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="main-content">
+        <div class="section product-section">
+            <h3>Sản phẩm trong đơn</h3>
+            {% comment %} render {% endcomment %}
+            <div id="order-products-container">
+                <p>Đang tải sản phẩm...</p>
+            </div>
+        </div>
+
+        <div class="section discount-section">
+            <h3>Mã giảm giá khả dụng</h3>
+            <div class="voucher-list" id="voucher-render-list">
+                {% comment %} render {% endcomment %}
+                </div>
+        </div>
+
+        <div class="section address-section">
+            <div class="box-header">
+                <h3>Địa chỉ nhận hàng</h3>
+                <button class="btn-primary" onclick="openModal()">Thay đổi</button>
+            </div>
+            <div id="selected-address-display">
+                {% comment %} render {% endcomment %}
+                <p>Vui lòng chọn địa chỉ giao hàng</p>
+            </div>
+        </div>
+
+        <div class="section payment-methods-container">
+            <h3>Phương thức thanh toán</h3>
+            <div class="payment-method-list" id="payment-methods-render">
+                {% comment %} render {% endcomment %}
+                <p>Đang tải phương thức thanh toán...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-box summary-box">
+            <h3>Thông tin đơn hàng</h3>
+            <div class="summary-row">
+                <span>Tạm tính</span>
+                <span id="summary-subtotal">0đ</span>
+            </div>
+            <div class="summary-row">
+                <span>Giảm giá</span>
+                <span id="summary-discount" class="negative-value">0đ</span>
+            </div>
+            <div class="summary-row">
+                <span>Phí vận chuyển</span>
+                <span>Miễn phí</span>
+            </div>
+            <hr>
+            <div class="summary-row final-row">
+                <span>Cần thanh toán</span>
+                <span class="highlight-price" id="summary-total">0đ</span>
+            </div>
+        </div>
+        <button class="order-button" id="confirm-payment-btn">Xác nhận đặt hàng</button>
+    </div>
+</div>
+
+<div id="addressModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Sổ địa chỉ</h3>
+            <span class="close-button" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body" id="modal-address-list">
+            </div>
+        <div class="modal-footer">
+            <button class="confirm-button" onclick="confirmAddress()">Xác nhận</button>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/Pay.js' %}"></script>
+</body>
+</html>

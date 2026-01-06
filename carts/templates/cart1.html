@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ hàng | FoodSmart</title>
+    <link rel="stylesheet" href="../static/css/cart.css">
+</head>
+<body>
+
+<section class="cart">
+  <h1>Giỏ hàng của bạn</h1>
+
+  <div class="cart-wrapper">
+    <!-- LEFT -->
+    <div class="cart-left">
+
+      <div class="select-all">
+        <label>
+          <input type="checkbox" id="selectAll" checked>
+          Chọn tất cả
+        </label>
+      </div>
+
+      <!-- ITEM -->
+      <div class="cart-item" data-price="45000">
+        <input type="checkbox" class="item-check" checked>
+        <img src="images/apple.jpg">
+        <span class="name">Táo đỏ hữu cơ</span>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="qty">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <span class="item-total">45.000đ</span>
+        <button class="remove">✕</button>
+      </div>
+
+      <div class="cart-item" data-price="30000">
+        <input type="checkbox" class="item-check" checked>
+        <img src="images/carrot.jpg">
+        <span class="name">Cà rốt tươi</span>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="qty">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <span class="item-total">30.000đ</span>
+        <button class="remove">✕</button>
+      </div>
+
+      <div class="cart-item" data-price="55000">
+        <input type="checkbox" class="item-check" checked>
+        <img src="images/orange.jpg">
+        <span class="name">Cam vàng</span>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="qty">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <span class="item-total">55.000đ</span>
+        <button class="remove">✕</button>
+      </div>
+
+      <div class="cart-item" data-price="120000">
+        <input type="checkbox" class="item-check" checked>
+        <img src="images/beef.jpg">
+        <span class="name">Thịt bò tươi</span>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="qty">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <span class="item-total">120.000đ</span>
+        <button class="remove">✕</button>
+      </div>
+
+      <div class="cart-item" data-price="40000">
+        <input type="checkbox" class="item-check" checked>
+        <img src="images/egg.jpg">
+        <span class="name">Trứng gà ta</span>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="qty">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <span class="item-total">40.000đ</span>
+        <button class="remove">✕</button>
+      </div>
+
+
+      <div class="cart-item" data-price="25000">
+        <input type="checkbox" class="item-check" checked>
+        <img src="images/bread.jpg">
+        <span class="name">Bánh mì tươi</span>
+
+        <div class="quantity">
+          <button class="minus">-</button>
+          <span class="qty">1</span>
+          <button class="plus">+</button>
+        </div>
+
+        <span class="item-total">25.000đ</span>
+        <button class="remove">✕</button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="cart-right">
+      <h2>Tóm tắt đơn hàng</h2>
+
+      <div class="row">
+        <span>Tạm tính</span>
+        <span id="subtotal">0đ</span>
+      </div>
+
+      <div class="row">
+        <span>Vận chuyển</span>
+        <span>Miễn phí</span>
+      </div>
+
+      <div class="row total">
+        <span>Tổng cộng</span>
+        <span id="total">0đ</span>
+      </div>
+
+      <a href="../../payments/templates/Pay.html"><button class="checkout">Thanh toán</button></a>
+      <a href="index.html" class="continue">← Tiếp tục mua sắm</a>
+    </div>
+  </div>
+</section>
+
+<script src="cart.js"></script>
+</body>
+</html>
