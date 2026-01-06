@@ -1,0 +1,143 @@
+
+        /* --- GLOBAL & RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f9f9f9; color: #333; padding-bottom: 50px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; }
+
+        /* --- BREADCRUMB --- */
+        .breadcrumb { margin-bottom: 30px; font-size: 14px; color: #888; }
+        .breadcrumb strong { color: #333; }
+
+        /* --- LAYOUT (SIDEBAR + CONTENT) --- */
+        .profile-layout { display: flex; gap: 30px; align-items: flex-start; }
+
+        /* --- 1. SIDEBAR --- */
+        .sidebar { width: 280px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); overflow: hidden; flex-shrink: 0; }
+        .user-card { padding: 30px 20px; text-align: center; border-bottom: 1px solid #eee; background: linear-gradient(to bottom, #fff, #fcfcfc); }
+        .user-avatar { width: 80px; height: 80px; background: #eee; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 30px; color: #888; border: 3px solid #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .user-name { font-weight: 700; font-size: 18px; margin-bottom: 5px; }
+        .user-email { color: #888; font-size: 14px; }
+
+        .menu-list { padding: 10px 0; }
+        .menu-item { display: flex; align-items: center; gap: 15px; padding: 12px 25px; color: #555; cursor: pointer; transition: 0.2s; font-size: 15px; }
+        .menu-item:hover { background-color: #f9f9f9; color: #d97706; }
+        .menu-item.active { background-color: #fffbeb; color: #d97706; font-weight: 600; border-left: 4px solid #facc15; }
+
+        /* --- 2. CONTENT AREA --- */
+        .content-area { flex: 1; }
+        .content-box { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); margin-bottom: 30px; display: none; /* Ẩn mặc định */ animation: fadeIn 0.3s ease; }
+        .content-box.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        .box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .box-title { font-size: 20px; font-weight: 700; color: #333; }
+
+        /* --- FORM ELEMENTS --- */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; }
+        .form-input { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 6px; outline: none; transition: 0.2s; font-size: 14px; }
+        .form-input:focus { border-color: #facc15; box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1); }
+        .form-input:disabled { background: #f5f5f5; cursor: not-allowed; }
+        
+        .btn-primary { background: #facc15; border: none; padding: 10px 30px; border-radius: 6px; font-weight: 600; cursor: pointer; color: #222; transition: 0.2s; }
+        .btn-primary:hover { background: #eab308; }
+        
+        /* --- ORDER LIST STYLE --- */
+        .order-item { border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; transition: 0.2s; }
+        .order-item:hover { border-color: #facc15; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .order-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #eee; }
+        .order-id { font-weight: 700; color: #333; }
+        .order-date { font-size: 13px; color: #888; margin-left: 10px; font-weight: normal; }
+        .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .status-success { background: #dcfce7; color: #166534; }
+        .status-pending { background: #fef9c3; color: #854d0e; }
+        .order-body-mini { display: flex; gap: 15px; align-items: center; }
+        .mini-img { width: 60px; height: 60px; object-fit: contain; border: 1px solid #eee; border-radius: 4px; }
+        .order-info { flex: 1; }
+        .price-text { color: #e11d48; font-weight: 700; font-size: 16px; }
+
+        /* --- ADDRESS BOOK STYLE (MỚI) --- */
+        .address-list { display: grid; gap: 20px; }
+        .address-card { border: 1px solid #eee; padding: 20px; border-radius: 8px; position: relative; transition: 0.2s; }
+        .address-card.default { border: 1px solid #facc15; background: #fffbeb; }
+        .address-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .addr-name { font-weight: 700; font-size: 16px; }
+        .addr-phone { color: #666; font-size: 14px; border-left: 1px solid #ddd; padding-left: 10px; margin-left: 10px; }
+        .addr-text { color: #555; font-size: 14px; margin-bottom: 15px; line-height: 1.5; }
+        .badge-default { background: #facc15; color: #222; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; margin-left: 10px; }
+        
+        .addr-actions { display: flex; gap: 10px; justify-content: flex-end; }
+        .btn-text { background: none; border: none; font-size: 13px; color: #007bff; cursor: pointer; font-weight: 500; }
+        .btn-text:hover { text-decoration: underline; }
+        .btn-text.delete { color: #e11d48; }
+
+        .btn-add-addr { border: 1px dashed #facc15; background: #fff; width: 100%; padding: 15px; text-align: center; color: #d97706; font-weight: 600; cursor: pointer; border-radius: 8px; transition: 0.2s; }
+        .btn-add-addr:hover { background: #fffbeb; }
+
+        /* --- PASSWORD STYLE (MỚI) --- */
+        .password-note { font-size: 13px; color: #666; margin-bottom: 20px; background: #f0fdf4; padding: 10px; border-radius: 6px; border-left: 3px solid #22c55e; }
+
+        @media (max-width: 768px) {
+            .profile-layout { flex-direction: column; }
+            .sidebar { width: 100%; margin-bottom: 20px; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+/* --- CSS CHO MODAL (OVERLAY) --- */
+
+/* Lớp phủ mờ toàn màn hình */
+.modal-overlay {
+    display: none; /* Quan trọng: Mặc định phải ẩn */
+    position: fixed; /* Quan trọng: Giúp đè lên mọi thứ */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu đen mờ 50% */
+    z-index: 1000; /* Luôn nằm trên cùng */
+    backdrop-filter: blur(4px); /* Làm mờ nền đằng sau cho đẹp */
+}
+
+/* Hộp nội dung ở giữa */
+.modal-box {
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    margin: 100px auto; /* Cách đỉnh 100px và căn giữa */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s ease; /* Hiệu ứng trượt xuống */
+}
+
+/* Hiệu ứng chuyển động */
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Header, Body, Footer của Modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+.close-btn:hover { color: red; }
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}

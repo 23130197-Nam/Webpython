@@ -1,0 +1,285 @@
+{% load static %};
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản của tôi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="{% static 'users/profile.css' %}">
+     <style>
+        /* --- BẮT BUỘC TRÌNH DUYỆT PHẢI ĐỌC CÁI NÀY --- */
+        
+        /* Lớp phủ (Cái nền đen mờ) */
+        .modal-overlay {
+            display: none;       /* QUAN TRỌNG: Mặc định phải ẩn đi */
+            position: fixed;     /* QUAN TRỌNG: Để nó nổi lên trên cùng (Overlay) */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Màu đen mờ */
+            z-index: 9999;       /* Đảm bảo đè lên mọi thứ khác */
+            backdrop-filter: blur(4px); /* Làm mờ hậu cảnh */
+        }
+
+        /* Cái hộp trắng chứa form */
+        .modal-box {
+            background: white;
+            width: 500px;
+            max-width: 90%;
+            margin: 100px auto;  /* Cách top 100px và căn giữa */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        /* Hiệu ứng trượt xuống */
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* CSS phụ cho đẹp */
+        .modal-header { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px;}
+        .close-btn { cursor: pointer; font-size: 24px; font-weight: bold; color: #999;}
+        .close-btn:hover { color: red; }
+        .modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+    </style>
+    
+</head>
+<body>
+
+<div class="container">
+    <div class="breadcrumb">
+        <a href="#">Trang chủ</a> / <strong>Tài khoản của tôi</strong>
+    </div>
+
+    <div class="profile-layout">
+        <div class="sidebar">
+            <div class="user-card">
+                <div class="user-avatar"><i class="fas fa-user"></i></div>
+                <div id="sidebar-username" class="user-name">Nguyễn Văn A</div>
+                <div class="user-email">nguyenvana@gmail.com</div>
+            </div>
+            <ul class="menu-list">
+                <li class="menu-item active" onclick="switchTab(this, 'tab-info')">
+                    <i class="fas fa-user-circle" style="width:20px"></i> Thông tin tài khoản
+                </li>
+                <li class="menu-item" onclick="switchTab(this, 'tab-orders')">
+                    <i class="fas fa-box-open" style="width:20px"></i> Quản lý đơn hàng
+                </li>
+                <li class="menu-item" onclick="switchTab(this, 'tab-address')">
+                    <i class="fas fa-map-marker-alt" style="width:20px"></i> Sổ địa chỉ
+                </li>
+                <li class="menu-item" onclick="switchTab(this, 'tab-password')">
+                    <i class="fas fa-lock" style="width:20px"></i> Đổi mật khẩu
+                </li>
+                <li class="menu-item" style="color: #e11d48; border-top: 1px solid #eee; margin-top: 10px;">
+                    <i class="fas fa-sign-out-alt" style="width:20px"></i> Đăng xuất
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-area">
+            
+            <div id="tab-info" class="content-box active">
+                <div class="box-header">
+                    <h3 class="box-title">Hồ sơ của tôi</h3>
+                </div>
+                <form id="profile-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Họ và tên</label>
+                            <input type="text" id="input-username" class="form-input" value="Nguyễn Văn A">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email (Không thể thay đổi)</label>
+                            <input type="email" id="input-email" class="form-input" value="nguyenvana@gmail.com" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Số điện thoại</label>
+                            <input type="text" id="input-phone" class="form-input" value="0987654321">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ngày sinh</label>
+                            <input type="date" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Giới tính</label>
+                            <select class="form-input">
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                                <option>Khác</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" onclick="updateProfile()" class="btn-primary">Lưu thay đổi</button>
+                </form>
+            </div>
+
+            <div id="tab-orders" class="content-box">
+                <div class="box-header">
+                    <h3 class="box-title">Đơn hàng của tôi</h3>
+                </div>
+
+                <div class="order-item">
+                    <div class="order-head">
+                        <div>
+                            <span class="order-id">#ORD-882910</span>
+                            <span class="order-date">14/12/2025</span>
+                        </div>
+                        <span class="status-badge status-success">Giao thành công</span>
+                    </div>
+                    <div class="order-body-mini">
+                        <img src="https://via.placeholder.com/60?text=SP" class="mini-img">
+                        <div class="order-info">
+                            <h4>Phô mai cheddar miếng (và 2 sản phẩm khác)</h4>
+                        </div>
+                        <div class="order-total">
+                            <div style="font-size:12px; color:#888">Tổng tiền</div>
+                            <div class="price-text">48.000₫</div>
+                        </div>
+                    </div>
+                    <div style="text-align:right; margin-top:10px">
+                         <a href="{% url 'theo_doi' %}"><button class="btn-text" style="color:#facc15; font-weight:bold;">Xem chi tiết</button></a>
+                    </div>
+                </div>
+
+               <a href="theodoidonhang.html"> <div class="order-item">
+                    <div class="order-head">
+                        <div>
+                            <span class="order-id">#ORD-992100</span>
+                            <span class="order-date">15/12/2025</span>
+                        </div>
+                        <span class="status-badge status-pending">Đang vận chuyển</span>
+                    </div>
+                    <div class="order-body-mini">
+                        <img src="https://via.placeholder.com/60?text=SP2" class="mini-img">
+                        <div class="order-info">
+                            <h4>Bánh mì Baguette Pháp</h4>
+                        </div>
+                        <div class="order-total">
+                            <div style="font-size:12px; color:#888">Tổng tiền</div>
+                            <div class="price-text">18.000₫</div>
+                        </div>
+                    </div>
+                </div></a>
+            </div>
+
+            <div id="tab-address" class="content-box">
+                <div class="box-header">
+                    <h3 class="box-title">Sổ địa chỉ nhận hàng</h3>
+                    <button class="btn-primary" onclick="openModal()" style="font-size:13px; padding: 8px 15px;">+ Thêm mới</button>
+                </div>
+
+                <div class="address-list">
+                    <div class="address-card default">
+                        <div class="address-row">
+                            <div>
+                                <span class="addr-name">Nguyễn Văn A</span>
+                                <span class="addr-phone">0987 654 321</span>
+                                <span class="badge-default">Mặc định</span>
+                            </div>
+                        </div>
+                        <p class="addr-text">
+                            Số 123, Đường Nguyễn Văn Linh, Phường Tân Phong, Quận 7, TP. Hồ Chí Minh
+                        </p>
+                        <div class="addr-actions">
+                            <button class="btn-text">Cập nhật</button>
+                        </div>
+                    </div>
+
+                    <div class="address-card">
+                        <div class="address-row">
+                            <div>
+                                <span class="addr-name">Văn Phòng Công Ty</span>
+                                <span class="addr-phone">028 3999 9999</span>
+                            </div>
+                        </div>
+                        <p class="addr-text">
+                            Tòa nhà Bitexco, Số 2 Hải Triều, Quận 1, TP. Hồ Chí Minh
+                        </p>
+                        <div class="addr-actions">
+                            <button class="btn-text">Cập nhật</button>
+                            <button class="btn-text delete">Xóa</button>
+                            <button class="btn-text" style="color:#666">Thiết lập mặc định</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-add-addr" onclick="openModal()">
+                        <i class="fas fa-plus-circle"></i> Thêm địa chỉ mới
+                    </button>
+                </div>
+            </div>
+
+            <div id="tab-password" class="content-box">
+                <div class="box-header">
+                    <h3 class="box-title">Đổi mật khẩu</h3>
+                </div>
+
+                <p class="password-note">
+                    <i class="fas fa-shield-alt"></i> Mật khẩu nên có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường và số để bảo mật tốt hơn.
+                </p>
+
+                <form>
+                    <div class="form-group">
+                        <label class="form-label">Mật khẩu hiện tại</label>
+                        <input type="password" class="form-input" placeholder="Nhập mật khẩu đang dùng">
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Mật khẩu mới</label>
+                            <input type="password" id="new-pass" class="form-input" placeholder="Nhập mật khẩu mới">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Xác nhận mật khẩu mới</label>
+                            <input type="password" id="confirm-pass"class="form-input" placeholder="Nhập lại mật khẩu mới">
+                        </div>
+                    </div>
+
+                    <button  class="btn-primary" onclick="changePassword()">Cập nhật mật khẩu</button>
+                    <a href="#" style="font-size:14px; color:#007bff; margin-left:15px; text-decoration:underline;">Quên mật khẩu?</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="modal-add-address" class="modal-overlay">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Thêm địa chỉ nhận hàng mới</h3>
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+        </div>
+        
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="form-label">Địa chỉ cụ thể (Số nhà, đường)</label>
+                <input type="text" id="new-street" class="form-input" placeholder="Ví dụ: 123 Nguyễn Văn Linh">
+            </div>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Phường/Xã</label>
+                    <input type="text" id="new-ward" class="form-input" placeholder="Ví dụ: Tân Phong">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tỉnh/Thành phố</label>
+                    <input type="text" id="new-province" class="form-input" placeholder="Ví dụ: TP. HCM">
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button onclick="closeModal()" class="btn-text">Hủy bỏ</button>
+            <button onclick="submitNewAddress()" class="btn-primary">Lưu địa chỉ</button>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'users/js/profile_api.js' %}"></script>
+</body>
+</html>

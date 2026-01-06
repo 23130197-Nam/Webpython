@@ -1,0 +1,227 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f7f9f7;
+  margin: 0;
+}
+
+/* ================= LAYOUT ================= */
+.cart {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.cart-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* ================= LEFT ================= */
+.cart-left {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* ===== ACTION BAR (CHỌN TẤT CẢ | XÓA TOÀN BỘ) ===== */
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.clear-cart-btn {
+  background: transparent;
+  border: 1px solid #ff4d4f;
+  color: #000000;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-cart-btn:hover {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+/* ================= CART ITEM ================= */
+.cart-item {
+  display: grid;
+  grid-template-columns: 24px 70px 1.5fr 140px 100px 30px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+/* ================= QUANTITY ================= */
+.quantity {
+  display: flex;
+}
+
+.quantity button,
+.quantity .qty {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.quantity .minus {
+  background: #f9d65c;
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+
+.quantity .plus {
+  background: #f9d65c;
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+
+.item-total {
+  font-weight: bold;
+}
+
+.remove {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ================= GIFT ================= */
+.gift-row {
+  padding: 8px 12px;
+  margin: 6px 0 12px 40px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-left: 4px solid #66bb6a;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* ================= PROMOTION ================= */
+.promo-badge {
+  background: #ff5252;
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+/* ================= RIGHT ================= */
+.cart-right {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.cart-right h2 {
+  margin-top: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+.checkout {
+  width: 100%;
+  padding: 14px;
+  background: #4caf50;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.continue {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: #4caf50;
+  text-decoration: none;
+}
+
+/* ================= EMPTY CART ================= */
+#emptyCart {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}
+/* mới thêm  */
+.price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.old-price {
+  font-size: 13px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.sale-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #e53935;
+}
+
+.promo-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #e53935;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}

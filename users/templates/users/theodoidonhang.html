@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo dõi đơn hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="{% static 'users/theodoidonhang.css' %}">
+
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="tracking-search-box">
+        <h1 class="tracking-title">Kiểm tra trạng thái đơn hàng</h1>
+        <p class="tracking-subtitle">Nhập mã đơn hàng của bạn để theo dõi lộ trình vận chuyển</p>
+
+        <div class="search-form">
+            <div class="input-group">
+                <input type="text" class="form-input" placeholder="Ví dụ: ORD-123456789" id="orderInput">
+            </div>
+            <button class="btn-track" onclick="simulateTracking()"><i class="fas fa-search"></i> Tra cứu</button>
+        </div>
+        <p id="errorMsg" style="color: red; margin-top: 10px; display: none;">Không tìm thấy mã đơn hàng này!</p>
+    </div>
+
+    <div class="tracking-result" id="resultBox">
+        
+        <div class="order-header">
+            <div class="order-id">Đơn hàng #ORD-882910</div>
+            <div class="order-status">Đang vận chuyển</div>
+        </div>
+
+        <div class="progress-track">
+            <div class="step-list">
+                <div class="progress-line-active" style="width: 66%;"></div> 
+
+                <div class="step-item completed">
+                    <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="step-label">Đã đặt hàng</div>
+                    <span class="step-date">14/12 08:30</span>
+                </div>
+
+                <div class="step-item completed">
+                    <div class="step-icon"><i class="fas fa-box-open"></i></div>
+                    <div class="step-label">Đã đóng gói</div>
+                    <span class="step-date">14/12 14:00</span>
+                </div>
+
+                <div class="step-item completed">
+                    <div class="step-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <div class="step-label">Đang giao</div>
+                    <span class="step-date">15/12 09:15</span>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-icon"><i class="fas fa-check"></i></div>
+                    <div class="step-label">Giao thành công</div>
+                    <span class="step-date">Dự kiến 16/12</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-body">
+            <div class="item-list">
+                <h4 style="margin-bottom: 20px;">Sản phẩm (2)</h4>
+                
+                <div class="item-row">
+                    <img src="https://via.placeholder.com/100?text=Pho+Mai" class="item-img">
+                    <div class="item-info">
+                        <h4>Phô mai cheddar miếng (Gói 12 lát)</h4>
+                        <div class="item-meta">Số lượng: 1</div>
+                    </div>
+                    <div class="item-price">12.000₫</div>
+                </div>
+
+                <div class="item-row">
+                    <img src="https://via.placeholder.com/100?text=Banh+Mi" class="item-img">
+                    <div class="item-info">
+                        <h4>Bánh mì baguette Pháp</h4>
+                        <div class="item-meta">Số lượng: 2</div>
+                    </div>
+                    <div class="item-price">36.000₫</div>
+                </div>
+            </div>
+
+            <div class="shipping-info">
+                <h4>Thông tin nhận hàng</h4>
+                <div class="info-row">
+                    <i class="fas fa-user"></i> <strong>Nguyễn Văn A</strong>
+                </div>
+                <div class="info-row">
+                    <i class="fas fa-phone"></i> 0987 *** 123
+                </div>
+                <div class="info-row">
+                    <i class="fas fa-map-marker-alt"></i> 123 Đường Nguyễn Văn Linh, Quận 7, TP.HCM
+                </div>
+                <div class="info-row" style="margin-top: 20px; color: #666;">
+                    Phương thức: <strong>Thanh toán khi nhận hàng (COD)</strong>
+                </div>
+
+                <div class="total-price">
+                    <span>Tổng cộng:</span>
+                    <span>48.000₫</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // Giả lập logic tra cứu (Dùng JS để minh họa)
+    function simulateTracking() {
+        var input = document.getElementById('orderInput').value;
+        var resultBox = document.getElementById('resultBox');
+        var errorMsg = document.getElementById('errorMsg');
+
+        // Reset trạng thái
+        resultBox.classList.remove('active');
+        errorMsg.style.display = 'none';
+
+        if(input.trim() === "") {
+            alert("Vui lòng nhập mã đơn hàng!");
+            return;
+        }
+
+        // Giả sử mã đúng là '123'
+        // Trong Django bạn sẽ submit form này lên server check DB
+        if(input.includes("123")) {
+            // Hiệu ứng loading giả 0.5s
+            setTimeout(function() {
+                resultBox.classList.add('active');
+            }, 500);
+        } else {
+            errorMsg.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán - WebSmartWatch</title>
+    <link rel="stylesheet" href="{% static 'css/Pay.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="main-content">
+        <div class="section product-section">
+            <h3>Sản phẩm trong đơn</h3>
+            {% comment %} render {% endcomment %}
+            <div id="order-products-container">
+                <p>Đang tải sản phẩm...</p>
+            </div>
+        </div>
+
+        <div class="section discount-section">
+            <h3>Mã giảm giá khả dụng</h3>
+            <p id="voucher-status-msg" style="font-size: 12px; color: #e44d26; margin-bottom: 8px; display: none;"></p>
+            
+            <div class="voucher-list" id="voucher-render-list">
+                {% comment %} JS sẽ render nội dung vào đây {% endcomment %}
+                <p>Đang kiểm tra khuyến mãi...</p>
+            </div>
+        </div>
+
+        <div class="section address-section">
+            <div class="box-header">
+                <h3>Địa chỉ nhận hàng</h3>
+                <button class="btn-primary" onclick="toggleAddressList()">Thay đổi</button>
+            </div>
+
+            <!-- Địa chỉ đang chọn -->
+            <div id="selected-address-display">
+                <p>Vui lòng chọn địa chỉ giao hàng</p>
+            </div>
+
+            <!-- Danh sách địa chỉ (ẩn / hiện) -->
+            <div id="address-dropdown" class="address-dropdown hidden">
+                <!-- JS render -->
+            </div>
+        </div>
+
+        <div class="section payment-methods-container">
+            <h3>Phương thức thanh toán</h3>
+            <div class="payment-method-list" id="payment-methods-render">
+                {% comment %} render {% endcomment %}
+                <p>Đang tải phương thức thanh toán...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-box summary-box">
+            <h3>Thông tin đơn hàng</h3>
+            <div class="summary-row">
+                <span>Tạm tính</span>
+                <span id="summary-subtotal">0đ</span>
+            </div>
+            <div class="summary-row">
+                <span>Giảm giá</span>
+                <span id="summary-discount" class="negative-value">0đ</span>
+            </div>
+            <div class="summary-row">
+                <span>Phí vận chuyển</span>
+                <span>Miễn phí</span>
+            </div>
+            <hr>
+            <div class="summary-row final-row">
+                <span>Cần thanh toán</span>
+                <span class="highlight-price" id="summary-total">0đ</span>
+            </div>
+        </div>
+        <button class="order-button" id="confirm-payment-btn">Xác nhận đặt hàng</button>
+    </div>
+</div>
+<div id="order-success-overlay" class="success-overlay hidden">
+  <div class="success-modal">
+    <div class="success-icon">✔</div>
+    <h2>Đặt hàng thành công</h2>
+    <p>Cảm ơn bạn đã mua sắm tại <strong>FoodSmart</strong></p>
+
+    <div class="success-actions">
+      <button class="btn-home" onclick="goHome()">Về trang chủ</button>
+      <button class="btn-order" onclick="goToOrders()">Xem đơn hàng</button>
+    </div>
+  </div>
+</div>
+<script src="{% static 'js/Pay.js' %}"></script>
+</body>
+</html>

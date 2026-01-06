@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - Phô mai Cheddar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/users/chitietsp.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#">Trang chủ</a> / <a href="#">Thực phẩm</a> / <a href="#">Bơ & Phô mai</a> / <strong>Phô mai
+                Cheddar miếng</strong>
+        </div>
+
+        <div class="product-detail-box">
+            <div class="product-images">
+                <div class="main-img-wrapper">
+                    <img src="http://127.0.0.1:5500/images/product-thumb-3.png" id="mainImg" class="main-img">
+                </div>
+                <div class="thumb-list">
+                    <div class="thumb-item active"
+                        onclick="changeImage(this, 'https://via.placeholder.com/500x500?text=Pho+Mai+Main')">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdfqh98D13Hc03fn5JMY9zIVBN6nl34jSgeA&s"
+                            alt="thumb">
+                    </div>
+                    <div class="thumb-item"
+                        onclick="changeImage(this, 'https://via.placeholder.com/500x500?text=Pho+Mai+Side')">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFaNYAYWCGznonPK96FSgZH9-o9YV2w-ARig&s"
+                            alt="thumb">
+                    </div>
+                    <div class="thumb-item"
+                        onclick="changeImage(this, 'https://via.placeholder.com/500x500?text=Pho+Mai+Back')">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2YRyu1msSntGGFkeRlmEqGM-5EhMBzohmGQ&s"
+                            alt="thumb">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-content">
+                <span class="category-tag">THỰC PHẨM TƯƠI SỐNG</span>
+                <h1 class="product-name">Phô mai cheddar miếng (Gói 12 lát)</h1>
+                <div class="review-row">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <span class="review-count">(32 đánh giá)</span>
+                </div>
+                <div class="price-row">
+                    <span class="current-price">12.000₫</span>
+                    <span class="old-price">14.000₫</span>
+                    <span class="discount-badge">-10%</span>
+                </div>
+                <p class="short-desc">Phô mai Cheddar miếng chất lượng cao, vị béo ngậy, thích hợp dùng kèm bánh mì
+                    sandwich hoặc nấu các món Âu.</p>
+                <ul class="specs-list">
+                    <li><strong>Xuất xứ:</strong> Việt Nam</li>
+                    <li><strong>Hạn sử dụng:</strong> 6 tháng</li>
+                    <li><strong>Bảo quản:</strong> Ngăn mát tủ lạnh</li>
+                </ul>
+                <div class="action-row">
+                    <div class="qty-control">
+                        <button class="qty-btn" onclick="updateQty(-1)">-</button>
+                        <input type="text" value="1" class="qty-input" id="qtyInput">
+                        <button class="qty-btn" onclick="updateQty(1)">+</button>
+                    </div>
+                    <button class="btn-add"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</button>
+                    <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Sản phẩm liên quan</h2>
+        <div class="related-grid">
+           <div class="product-item">
+        <figure>
+            <a href="#">
+                <img src="https://bizweb.dktcdn.net/100/438/465/files/banh-mi-baguette-661707ed-7598-40ae-bcb0-3f0f2c554724.jpg?v=1665376440327" class="tab-image">
+            </a>
+        </figure>
+        <div class="product-details">
+            <h3 class="product-title">Bánh mì baguette Pháp</h3>
+            <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>(222)</span>
+            </div>
+            <div class="price-box">
+                <span class="old-price">24.000₫</span>
+                <span class="new-price">18.000₫</span>
+                <span class="discount">Giảm 10%</span>
+            </div>
+            <div class="button-area">
+                <div class="row-btn">
+                    <input type="number" value="1" class="qty-input-mini">
+                    <button class="btn-cart-mini"><i class="fas fa-shopping-cart"></i> Thêm</button>
+                    <button class="btn-heart-mini"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-item">
+        <figure>
+            <a href="#">
+                <img src="https://dacsanngondanang.com/wp-content/uploads/2022/09/Hat-yen-mach-nguyen-hat-500g.jpg" class="tab-image">
+            </a>
+        </figure>
+        <div class="product-details">
+            <h3 class="product-title">Yến mạch nguyên hạt</h3>
+            <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                <span>(41)</span>
+            </div>
+            <div class="price-box">
+                <span class="old-price">54.000₫</span>
+                <span class="new-price">50.000₫</span>
+                <span class="discount">Giảm 10%</span>
+            </div>
+            <div class="button-area">
+                <div class="row-btn">
+                    <input type="number" value="1" class="qty-input-mini">
+                    <button class="btn-cart-mini"><i class="fas fa-shopping-cart"></i> Thêm</button>
+                    <button class="btn-heart-mini"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-item">
+        <figure>
+            <a href="#">
+                <img src="https://via.placeholder.com/200?text=Rau+Xanh" class="tab-image">
+            </a>
+        </figure>
+        <div class="product-details">
+            <h3 class="product-title">Rau chân vịt baby hữu cơ</h3>
+            <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span>(120)</span>
+            </div>
+            <div class="price-box">
+                <span class="old-price">20.000₫</span>
+                <span class="new-price">15.000₫</span>
+                <span class="discount">Giảm 25%</span>
+            </div>
+            <div class="button-area">
+                <div class="row-btn">
+                    <input type="number" value="1" class="qty-input-mini">
+                    <button class="btn-cart-mini"><i class="fas fa-shopping-cart"></i> Thêm</button>
+                    <button class="btn-heart-mini"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-item">
+        <figure>
+            <a href="#">
+                <img src="https://via.placeholder.com/200?text=Bong+Cai" class="tab-image">
+            </a>
+        </figure>
+        <div class="product-details">
+            <h3 class="product-title">Bông cải xanh Đà Lạt</h3>
+            <div class="rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>(89)</span>
+            </div>
+            <div class="price-box">
+                <span class="old-price">30.000₫</span>
+                <span class="new-price">25.000₫</span>
+                <span class="discount">Giảm 15%</span>
+            </div>
+            <div class="button-area">
+                <div class="row-btn">
+                    <input type="number" value="1" class="qty-input-mini">
+                    <button class="btn-cart-mini"><i class="fas fa-shopping-cart"></i> Thêm</button>
+                    <button class="btn-heart-mini"><i class="far fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+        <h2 class="section-title">Đánh giá & Nhận xét</h2>
+        <div class="reviews-box">
+
+            <div class="stats-container">
+                <div class="big-rating">
+                    <div class="rating-number">4.8</div>
+                    <div class="rating-stars-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="rating-total">32 đánh giá</div>
+                </div>
+                <div class="progress-bars">
+                    <div class="bar-row"><span style="width:30px">5 <i class="fas fa-star"></i></span>
+                        <div class="p-bg">
+                            <div class="p-fill" style="width: 70%"></div>
+                        </div><span style="width:30px; text-align:right">22</span>
+                    </div>
+                    <div class="bar-row"><span style="width:30px">4 <i class="fas fa-star"></i></span>
+                        <div class="p-bg">
+                            <div class="p-fill" style="width: 20%"></div>
+                        </div><span style="width:30px; text-align:right">6</span>
+                    </div>
+                    <div class="bar-row"><span style="width:30px">3 <i class="fas fa-star"></i></span>
+                        <div class="p-bg">
+                            <div class="p-fill" style="width: 5%"></div>
+                        </div><span style="width:30px; text-align:right">2</span>
+                    </div>
+                    <div class="bar-row"><span style="width:30px">2 <i class="fas fa-star"></i></span>
+                        <div class="p-bg">
+                            <div class="p-fill" style="width: 5%"></div>
+                        </div><span style="width:30px; text-align:right">2</span>
+                    </div>
+                    <div class="bar-row"><span style="width:30px">1 <i class="fas fa-star"></i></span>
+                        <div class="p-bg">
+                            <div class="p-fill" style="width: 0%"></div>
+                        </div><span style="width:30px; text-align:right">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="write-review-box">
+                <h4>Viết đánh giá của bạn</h4>
+                <div class="rating-input">
+                    <i class="fas fa-star selected"></i><i class="fas fa-star selected"></i><i
+                        class="fas fa-star selected"></i><i class="fas fa-star selected"></i><i class="fas fa-star"></i>
+                    <span style="margin-left:10px; color:#666; font-size:14px;">(Chọn mức độ hài lòng)</span>
+                </div>
+                <textarea class="review-textarea" placeholder="Chia sẻ cảm nhận của bạn về sản phẩm..."></textarea>
+                <button class="btn-submit">Gửi đánh giá</button>
+            </div>
+
+            <div class="review-list">
+                <div class="user-review-item">
+                    <div class="avatar-circle">A</div>
+                    <div class="comment-content">
+                        <h5>Nguyễn Văn A <span class="comment-date">- 15/12/2025</span></h5>
+                        <div class="comment-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="comment-text">Sản phẩm rất tốt, đóng gói cẩn thận. Giao hàng nhanh trong 2h.</p>
+                    </div>
+                </div>
+                <div class="user-review-item">
+                    <div class="avatar-circle">B</div>
+                    <div class="comment-content">
+                        <h5>Trần Thị B <span class="comment-date">- 14/12/2025</span></h5>
+                        <div class="comment-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                        <p class="comment-text">Phô mai hơi mặn so với khẩu vị của mình, nhưng làm bánh thì ngon.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function changeImage(el, src) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.thumb-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+        }
+        function updateQty(val) {
+            let input = document.getElementById('qtyInput');
+            let current = parseInt(input.value);
+            let next = current + val;
+            if (next >= 1) input.value = next;
+        }
+    </script>
+
+</body>
+
+</html>
